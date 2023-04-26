@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Приложение сделанное на REACT.
         </p>
 
         <button onClick={onClose}>Close</button>
