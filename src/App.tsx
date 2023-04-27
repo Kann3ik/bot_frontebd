@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-// @ts-ignore
-const tg = window.Telegram.WebApp;
+import { Form } from './components/Form';
+import { Header } from './components/Header';
+import {Route, Routes} from 'react-router-dom'
+import { useTelegram } from './hooks/useTelegram';
 
 function App() {
+  const { tg } = useTelegram();
 
-  const onClose = () => {
-    tg.close();
-  }
-
+  useEffect(() => {
+    tg.ready();
+  }, [])
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Приложение сделанное на REACT.
-        </p>
-
-        <button onClick={onClose}>Close</button>
-      </header>
+    <div className="mt-0 ml-auto mr-auto p-[25px] pt-0 max-w-[500px]">
+      <Header />
+      <Routes>
+        <Route index element={<Form />}/>
+      </Routes>
     </div>
   );
 }
